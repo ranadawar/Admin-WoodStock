@@ -8,11 +8,10 @@ import {
   View,
 } from "react-native";
 import React from "react";
-import AppScreen from "../../components/AppScreen";
-import AppHeader from "../../components/AppHeader";
-import { COLORS, FONTS } from "../../constants/theme";
-import AdminCard from "../../components/admin/AdminCard";
-import CustomSwitch from "../../components/CustomSwitch";
+import AppScreen from "../components/AppScreen";
+import AppHeader from "../components/AppHeader";
+import { COLORS, FONTS } from "../constants/theme";
+import CustomSwitch from "../components/CustomSwitch";
 
 const WorkerDetails = ({ navigation, route }) => {
   const worker = route.params;
@@ -61,7 +60,7 @@ const WorkerDetails = ({ navigation, route }) => {
     }
   };
   return (
-    <AppScreen>
+    <AppScreen style={{ backgroundColor: COLORS.bg }}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <AppHeader isGoBack={true} onPress={() => navigation.goBack()} />
         <Text style={styles.screenTitle}>Worker Details</Text>
@@ -69,7 +68,7 @@ const WorkerDetails = ({ navigation, route }) => {
           <Image
             resizeMode="contain"
             style={{ width: 130, height: 130, alignSelf: "center" }}
-            source={require("../../../assets/icons/adminIcons/driver.png")}
+            source={require("../../assets/icons/adminIcons/driver.png")}
           />
           <Text style={styles.name}>{worker.name}</Text>
 
@@ -84,14 +83,14 @@ const WorkerDetails = ({ navigation, route }) => {
           <View style={styles.btns}>
             <TouchableOpacity onPress={sendEmail} style={styles.innerRow}>
               <Image
-                source={require("../../../assets/icons/adminIcons/mail.png")}
+                source={require("../../assets/icons/adminIcons/mail.png")}
                 style={styles.contactBtnIcon}
               />
               <Text style={styles.this}>Send Mail to Worker</Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={callWorker} style={styles.innerRow}>
               <Image
-                source={require("../../../assets/icons/adminIcons/phone.png")}
+                source={require("../../assets/icons/adminIcons/phone.png")}
                 style={styles.contactBtnIcon}
               />
               <Text style={styles.this}>Call Worker</Text>

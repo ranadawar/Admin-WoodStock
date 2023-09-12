@@ -1,18 +1,18 @@
 import { StyleSheet, Text, View } from "react-native";
 import React, { useState } from "react";
-import AppScreen from "../../components/AppScreen";
-import AppHeader from "../../components/AppHeader";
 
 import * as Yup from "yup";
-import { COLORS, FONTS } from "../../constants/theme";
-import { AppForm, AppFormField, SubmitButton } from "../../components/form";
-import CustomSwitch from "../../components/CustomSwitch";
+import { COLORS, FONTS } from "../constants/theme";
+import { AppForm, AppFormField, SubmitButton } from "../components/form";
+import CustomSwitch from "../components/CustomSwitch";
+import AppScreen from "../components/AppScreen";
+import AppHeader from "../components/AppHeader";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required().label("Name"),
   email: Yup.string().required().email().label("Email"),
   phone: Yup.string().required().label("Phone"),
-  password: Yup.string().required().min(4).label("Password"),
+  password: Yup.string().required().min(4).label("pPassword"),
   confirmPassword: Yup.string()
     .required()
     .oneOf([Yup.ref("password"), null], "Passwords must match")
@@ -39,7 +39,7 @@ const AddWorker = ({ navigation }) => {
     console.log(isAdmin); //this will be true or false
   };
   return (
-    <AppScreen style={{ backgroundColor: COLORS.white }}>
+    <AppScreen style={{ backgroundColor: COLORS.bg }}>
       <AppHeader isGoBack={true} onPress={() => navigation.goBack()} />
       <Text style={styles.screenTitle}>Add Worker</Text>
       <View style={styles.formContainer}>

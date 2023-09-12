@@ -1,12 +1,12 @@
 import { FlatList, StyleSheet, Text, View } from "react-native";
 import React, { useState } from "react";
-import AppScreen from "../../components/AppScreen";
-import AppHeader from "../../components/AppHeader";
-import AppTextInput from "../../components/AppTextInput";
-import { FONTS } from "../../constants/theme";
-import WorkerCard from "../../components/admin/WorkerCard";
 
 import LottieView from "lottie-react-native";
+import AppScreen from "../components/AppScreen";
+import AppHeader from "../components/AppHeader";
+import AppTextInput from "../components/AppTextInput";
+import WorkerCard from "../components/admin/WorkerCard";
+import { COLORS, FONTS } from "../constants/theme";
 
 const users = [
   {
@@ -19,7 +19,7 @@ const users = [
   {
     id: 2,
     //change name email phone and isAdmin to see the changes each time
-    name: "Ahmed Dev",
+    name: "Zuljam",
     email: "ahmed@gmail.com",
     phone: "03001234567",
     isAdmin: false,
@@ -33,8 +33,8 @@ const users = [
   },
   {
     id: 4,
-    name: "dawar",
-    email: "dawar@gmail.com",
+    name: "Asad",
+    email: "thiss@gmail.com",
     phone: "03001234567",
     isAdmin: false,
   },
@@ -59,7 +59,7 @@ const AllWorkers = ({ navigation }) => {
   };
 
   return (
-    <AppScreen>
+    <AppScreen style={{ backgroundColor: COLORS.bg }}>
       <AppHeader isGoBack={true} onPress={() => navigation.goBack()} />
 
       <Text style={styles.screenTitle}>All Workers</Text>
@@ -89,7 +89,7 @@ const AllWorkers = ({ navigation }) => {
             <Text style={styles.noUserText}>No User Found!</Text>
             <View style={styles.animationContainer}>
               <LottieView
-                source={require("../../../assets/animations/notf.json")}
+                source={require("../../assets/animations/notf.json")}
                 autoPlay
                 loop
                 style={{ width: 250, height: 250 }}

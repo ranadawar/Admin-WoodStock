@@ -9,7 +9,7 @@ const SubmitButton = ({ title, color, textColor, ...otherProps }) => {
     <AppButton
       title={title}
       onPress={handleSubmit}
-      color={color}
+      bg={color}
       textColor={textColor}
       {...otherProps}
     />

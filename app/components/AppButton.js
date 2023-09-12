@@ -1,17 +1,20 @@
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { COLORS, FONTS } from "../constants/theme";
 
-const AppButton = ({ title = "Button", onPress, style, textStyle }) => {
+const AppButton = ({
+  onPress,
+  style,
+  bg = COLORS.primary,
+  title = "Submit",
+  textColor = COLORS.white,
+}) => {
   return (
-    <TouchableOpacity style={[styles.mainContainer, style]} onPress={onPress}>
-      <Text style={[styles.textStyle, textStyle]}>{title}</Text>
+    <TouchableOpacity
+      style={[styles.mainContainer, { backgroundColor: bg }]}
+      onPress={onPress}
+    >
+      <Text style={[styles.title, { color: textColor }]}>{title}</Text>
     </TouchableOpacity>
   );
 };
@@ -20,16 +23,16 @@ export default AppButton;
 
 const styles = StyleSheet.create({
   mainContainer: {
-    backgroundColor: COLORS.primary,
-    padding: Platform.OS === "ios" ? 15 : 10,
-    marginVertical: 7,
+    backgroundColor: COLORS.white,
+    padding: 12,
     justifyContent: "center",
     alignItems: "center",
-    borderRadius: 10,
+    marginVertical: 50,
+    borderRadius: 5,
   },
-  textStyle: {
-    color: COLORS.white,
+  title: {
     fontFamily: FONTS.bold,
-    fontSize: 16,
+    fontSize: 18,
+    color: COLORS.white,
   },
 });

@@ -43,10 +43,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flex: 1,
     height: 150,
-    backgroundColor: COLORS.pureWhite,
+    backgroundColor: COLORS.white,
     borderRadius: 10,
     justifyContent: "center",
-    ...SHADOWS.medium,
+    ...SHADOWS.light,
   },
   title: {
     fontSize: 18,
